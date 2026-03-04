@@ -14,13 +14,13 @@ int main(int argc, char **argv){
 
  /*
   Exercise 1*/
-    /*
+  
     int i;
     for(i=1;i<argc;i++){
-      //  if(  x)  s.pop();
+      if(strcmp(argv[i],"x")==0) s.pop();
         else s.push(atoi(argv[i]));
     }
-     */
+     
 
 
 
