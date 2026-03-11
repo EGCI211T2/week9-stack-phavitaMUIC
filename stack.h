@@ -6,34 +6,30 @@ class Stack {
 	NodePtr top;
 	int size;
 public:
-    void push(int);
-    int pop();
+    void push(char);
+    char pop();
     Stack();
     ~Stack();
+    bool isEmpty();
 };
 
 
-void Stack::push(int x){
+void Stack::push(char x){
   NodePtr new_node=new NODE(x);
   if(new_node){
             new_node->set_next(top);
             top = new_node;
             size++;
-
    }
- 
          // change the top
-
-         // 
-    
 }
 
-int Stack::pop(){
+char Stack::pop(){
     if(size>0){
         NodePtr t=top;
-        int value;
+        char value;
         value=t->get_value();
-        topt->get_next();
+        top = t->get_next();
 
     
         
@@ -45,19 +41,26 @@ int Stack::pop(){
 
 	//be careful of the empty stack!!!
     else{
-        cout<<"Empty Stack"<<endl;
-        return -1;
+        return '\0';
     }
     }
 
+bool Stack::isEmpty(){
+    return size == 0;
+}
+
 Stack::Stack(){
     //initialize stack
+    top = NULL;
+    size = 0;
     
 }
 Stack::~Stack(){
     //delete all remaning stack (i.e. pop all) 
-    cout<<"clearing all nodes"<<endl;
-    while(size>0) pop();
+    while(size>0) {
+    pop();
+    }
+
     
 }
 
